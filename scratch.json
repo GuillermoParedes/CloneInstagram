@@ -1,0 +1,68 @@
+{
+  "users" : {
+    "abc": {
+      "name": "John Doe",
+      "email": "something@something.com",
+      "registrationDate": ""
+    },
+    "def": {
+      "name": "Mar bar",
+      "email": "something@something.com",
+      "registrationDate": ""
+    }
+  },
+
+  "images": {
+    "image-name-1": {
+      "fileUrl": "http://www.somewhere.com/image-name-1.png",
+      "uploadedOn": "07-07-2017",
+      "uploaded_by": {
+        "name": "John Doe",
+        "email": "something@something.com",
+        "registrationDate": "",
+        "uid": "abc"
+      }
+    },
+    "image-name-2": {
+      "fileUrl": "http://www.somewhere.com/image-name-1.png",
+      "uploadedOn": "07-07-2017",
+      "uploaded_by": {
+        "name": "John Doe",
+        "email": "something@something.com",
+        "registrationDate": ""
+      }
+    }
+  },
+  "myposts": {
+    "abc" : [
+      {
+        "fileUrl": "http://www.somewhere.com/image-name-1.png",
+        "uploadedON":"07-07-2017",
+        "somethinelseToo": ""
+      },
+      {
+        "fileUrl": "http://www.somewhere.com/image-name-1.png",
+        "uploadedON":"07-07-2017",
+        "somethinelseToo": ""
+      }
+    ],
+    "def" : [
+      {
+        "fileUrl": "http://www.somewhere.com/image-name-1.png",
+        "uploadedON":"07-07-2017",
+        "somethinelseToo": ""
+      },
+      {
+        "fileUrl": "http://www.somewhere.com/image-name-1.png",
+        "uploadedON":"07-07-2017",
+        "somethinelseToo": ""
+      }
+    ]
+  },
+  "follow": {
+    "abc": {
+      "def": true,
+      "mno": true
+    }
+  }
+}
