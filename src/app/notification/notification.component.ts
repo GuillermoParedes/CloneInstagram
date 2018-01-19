@@ -11,14 +11,18 @@ export class NotificationComponent implements OnInit {
   message: string = null;
 
   constructor(private notifier: NotificationService) {
-    console.log('constructor notificationcomponent', notifier);
     notifier.emmitter.subscribe(data => {
-      console.log('data====>', data)
       this.type = data.type;
       this.message = data.message;
+      this.reset();
     })
   }
-
+  reset () {
+    setTimeout(() => {
+      this.type = null;
+      this.message = null;
+    }, 3000);
+  }
   ngOnInit() {
 
   }
