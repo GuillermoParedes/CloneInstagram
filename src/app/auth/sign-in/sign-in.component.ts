@@ -4,6 +4,7 @@ import { NotificationService } from '../../shared/notification.service';
 import * as firebase from 'firebase';
 import { MyFireService } from '../../shared/myfire.service';
 import { UserService } from '../../shared/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,7 +15,8 @@ export class SignInComponent implements OnInit {
 
   constructor(private notifier: NotificationService,
               private myFire: MyFireService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -38,6 +40,7 @@ export class SignInComponent implements OnInit {
       if (userDataFromDataBase) {
         console.log('userDataFromDataBase', userDataFromDataBase)
         this.userService.set(userDataFromDataBase);
+        this.router.navigate(['allposts']);
       }
     })
     .catch(err => {

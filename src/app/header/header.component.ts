@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+import { UserService } from '../shared/user.service';
+import { NotificationService } from '../shared/notification.service';
 
 @Component({
   selector: 'app-header',
@@ -7,17 +9,28 @@ import * as firebase from 'firebase';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedInt: boolean = false;
-  constructor() { }
+  isLoggedIn: boolean = false;
+  constructor(private userService: UserService,
+              private notifier: NotificationService) { }
 
   ngOnInit() {
     firebase.auth().onAuthStateChanged(userData => {
       // we are logged in
       if (userData && userData.emailVerified) {
-        this.isLoggedInt = true;
+        this.isLoggedIn = true;
       } else {
-        this.isLoggedInt = false;
+        this.isLoggedIn = false;
       }
+    })
+  }
+
+  onLogout () {
+    console.log('onlogut')
+    firebase.auth().signOut()
+    .then(() => {
+      this.userService.destroy()
+      this.isLoggedIn = false;
+      this.notifier.display('success', 'Logout user');
     })
   }
 
